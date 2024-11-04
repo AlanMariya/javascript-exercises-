@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of Squares</title>
+</head>
+<body>
+    <center>
+    <h1>Sum of Squares of Array Elements</h1>
+    <input type="text" id="arrayInput" placeholder="Enter numbers separated by commas"><br><br>
+    <button id="calculateButton">Calculate Sum of Squares</button>
+    <p id="result"></p>
+
+    <script>
+        function sumOfSquares(arr) {
+            return arr.reduce((sum, num) => sum + num * num, 0);
+        }
+
+        document.getElementById('calculateButton').addEventListener('click', function() {
+            const input = document.getElementById('arrayInput').value;
+            const array = input.split(',').map(Number); // Convert input to an array of numbers
+            const result = sumOfSquares(array);
+            document.getElementById('result').innerText = `Sum of Squares: ${result}`; // Display the result
+        });
+    </script>
+    </center>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<center>
+    <div>
+    <h1>Find the Most Frequent Item in an Array</h1> 
+    <input type="text" id="arrayInput" placeholder="Enter items separated by commas"> <br><br>
+    <button id="findButton">Find Most Frequent Item</button><br>
+    <p id="result"></p>
+
+
+
+    <script>
+       function mostFrequentItem(arr) {
+    const frequencyMap = {};
+    let maxCount = 0;
+    let mostFrequentItem;
+
+    // Count the frequency of each item
+    for (const item of arr) {
+        frequencyMap[item] = (frequencyMap[item] || 0) + 1;
+
+        // Update the most frequent item if the current item's count is higher
+        if (frequencyMap[item] > maxCount) {
+            maxCount = frequencyMap[item];
+            mostFrequentItem = item;
+        }
+    }
+
+    return mostFrequentItem;
+}
+
+document.getElementById('findButton').addEventListener('click', function() {
+    const input = document.getElementById('arrayInput').value;
+    const array = input.split(',').map(item => item.trim()); // Convert input to an array and trim whitespace
+    const result = mostFrequentItem(array);
+    document.getElementById('result').innerText = `Most Frequent Item: ${result}`; // Display the result on the page
+});
+
+
+    </script>
+    </div>
+</center>
+</body>
+</html>
